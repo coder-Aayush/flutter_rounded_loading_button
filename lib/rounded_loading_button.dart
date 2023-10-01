@@ -198,7 +198,7 @@ class RoundedLoadingButtonState extends State<RoundedLoadingButton>
       padding: const EdgeInsets.all(0),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          gradient: widget.gradient,
+          gradient: widget.onPressed != null ? widget.gradient : null,
           borderRadius: _borderAnimation.value,
         ),
         child: ElevatedButton(

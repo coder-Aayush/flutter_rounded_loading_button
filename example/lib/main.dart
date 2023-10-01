@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   colors: [Colors.red, Colors.orange],
                 ),
                 controller: _btnController2,
-                onPressed: () => _doSomething(_btnController2),
+                onPressed: null,
                 valueColor: Colors.black,
                 borderRadius: 10,
                 child: Text('''
