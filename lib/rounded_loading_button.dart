@@ -82,6 +82,9 @@ class RoundedLoadingButton extends StatefulWidget {
   /// The duration of the success and failed animation
   final Duration completionDuration;
 
+  // gradient
+  final Gradient? gradient;
+
   Duration get _borderDuration {
     return Duration(milliseconds: (duration.inMilliseconds / 2).round());
   }
@@ -112,6 +115,7 @@ class RoundedLoadingButton extends StatefulWidget {
     this.completionCurve = Curves.elasticOut,
     this.completionDuration = const Duration(milliseconds: 1000),
     this.disabledColor,
+    this.gradient,
   }) : super(key: key);
 
   @override
@@ -192,19 +196,25 @@ class RoundedLoadingButtonState extends State<RoundedLoadingButton>
       shape: RoundedRectangleBorder(borderRadius: _borderAnimation.value),
       disabledColor: widget.disabledColor,
       padding: const EdgeInsets.all(0),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          onSurface: widget.disabledColor,
-          minimumSize: Size(_squeezeAnimation.value, widget.height),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(widget.borderRadius),
-          ),
-          primary: widget.color,
-          elevation: widget.elevation,
-          padding: const EdgeInsets.all(0),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: widget.gradient,
+          borderRadius: _borderAnimation.value,
         ),
-        onPressed: widget.onPressed == null ? null : _btnPressed,
-        child: childStream,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            onSurface: widget.disabledColor,
+            minimumSize: Size(_squeezeAnimation.value, widget.height),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(widget.borderRadius),
+            ),
+            primary: widget.color,
+            elevation: widget.elevation,
+            padding: const EdgeInsets.all(0),
+          ),
+          onPressed: widget.onPressed == null ? null : _btnPressed,
+          child: childStream,
+        ),
       ),
     );
 

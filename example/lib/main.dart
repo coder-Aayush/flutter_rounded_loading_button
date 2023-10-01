@@ -40,11 +40,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     _btnController1.stateStream.listen((value) {
       print(value);
-
     });
   }
 
@@ -69,8 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 50,
               ),
               RoundedLoadingButton(
-                color: Colors.amber,
-                successColor: Colors.amber,
+                color: Colors.transparent,
+                successColor: Colors.transparent,
+                elevation: 0,
+                gradient: LinearGradient(
+                  colors: [Colors.red, Colors.orange],
+                ),
                 controller: _btnController2,
                 onPressed: () => _doSomething(_btnController2),
                 valueColor: Colors.black,
