@@ -203,7 +203,7 @@ class RoundedLoadingButtonState extends State<RoundedLoadingButton>
         ),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            disabledForegroundColor: widget.disabledColor,
+            disabledBackgroundColor: widget.disabledColor,
             minimumSize: Size(_squeezeAnimation.value, widget.height),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(widget.borderRadius),

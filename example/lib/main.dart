@@ -68,11 +68,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 50,
               ),
               RoundedLoadingButton(
+                disabledColor: Color(0xFF366CF8).withOpacity(.3),
                 color: Colors.transparent,
                 successColor: Colors.transparent,
                 elevation: 0,
                 gradient: LinearGradient(
-                  colors: [Colors.red, Colors.orange],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Color(0xFF366CF8), Color(0xFF3684F8)],
                 ),
                 controller: _btnController2,
                 onPressed: null,
